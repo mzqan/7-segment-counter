@@ -1,3 +1,6 @@
 # 7 Segment Counter ⏱️
 ![image](https://github.com/user-attachments/assets/82aa7a56-4ce6-4408-9b87-9cbd05dc2a31)
 This project serves as an automated counter, functioning without human input, where numbers are conveyed on a seven-segment display. Once powered by a battery, the digital circuit continuously cycles through the digits 0 to 9—with digit changes occurring at a rate of approximately 1 second. Upon reaching 10, the counter resets to 0, commencing a new count. 
+
+# How It Works
+A 555 timer chip generates a consistent one-second pulse by adjusting the on/off time through R2’s resistance, 330kΩ. The resulting pulse, in conjunction with a capacitor to store charge, triggers a high signal to the first clock pin of the SN74LS93 chip. This chip condenses the functionality of four J-K flip-flops, and serves as four bit-binary counter. Connecting the reset pins to output pins QB and QD ensures the count stops at 10 and resets. Lastly, the  SN74LS47 chip, a 7 segment decoder, receives and interprets the 4-bit binary input from the SN74LS93 chip. By connecting the corresponding pinouts of the 7 segment decoder to the segment pins of the 7 segment display, it then conveys the decimal equivalent of each binary number.
